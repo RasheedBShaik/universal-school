@@ -30,7 +30,7 @@ const Admissions = () => {
       <div className="mx-auto max-w-7xl">
         <div
           id="visit"
-          className="overflow-hidden rounded-[2rem] border-2 border-black bg-yellow-200 p-7 shadow-[8px_8px_0px_#000] sm:p-10 lg:p-14"
+          className="overflow-hidden rounded-4xl border-2 border-black bg-yellow-200 p-7 shadow-[8px_8px_0px_#000] sm:p-10 lg:p-14"
         >
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>

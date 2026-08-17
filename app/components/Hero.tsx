@@ -58,11 +58,11 @@ const Hero = () => {
 
         {/* Image */}
         <div className="relative">
-          <div className="overflow-hidden rounded-[2rem] border-2 border-black bg-white shadow-[8px_8px_0px_#000]">
+          <div className="overflow-hidden rounded-4xl border-2 border-black bg-white shadow-[8px_8px_0px_#000]">
             <img
               src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80"
               alt="Students learning in a classroom"
-              className="h-[360px] w-full object-cover sm:h-[450px]"
+              className="h-90 w-full object-cover sm:h-112.5"
             />
           </div>
 

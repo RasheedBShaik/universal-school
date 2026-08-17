@@ -59,7 +59,7 @@ const Gallery = () => {
                 src={image.src}
                 alt={image.alt}
                 loading="lazy"
-                className="h-full min-h-[180px] w-full object-cover transition duration-500 hover:scale-105"
+                className="h-full min-h-45 w-full object-cover transition duration-500 hover:scale-105"
               />
             </div>
           ))}
