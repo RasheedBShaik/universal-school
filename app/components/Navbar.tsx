@@ -99,7 +99,7 @@ const Navbar = () => {
 
             <a
               href="#visit"
-              className="flex items-center gap-1.5 whitespace-nowrap rounded-full bg-red-300 px-4 py-2 text-sm font-semibold transition hover:bg-red-400"
+              className="flex items-center gap-1.5 whitespace-nowrap rounded-full border border-red-600 text-red-700 px-4 py-2 text-sm font-semibold transition hover:bg-red-50"
             >
               <Calendar size={16} />
               <span>Book a Visit</span>
