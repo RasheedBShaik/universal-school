@@ -1,3 +1,4 @@
+
 interface Approach {
   number: string;
   title: string;
@@ -7,18 +8,18 @@ interface Approach {
 const approaches: Approach[] = [
   {
     number: "01",
-    title: "Teaching that listens",
-    text: "Teachers encourage questions, participation and individual progress.",
+    title: "Learning with understanding",
+    text: "Encouraging students to ask questions, think independently and build strong foundations in every subject.",
   },
   {
     number: "02",
-    title: "Activities that open up",
-    text: "Art, sports, projects and cultural activities give students opportunities to discover their interests.",
+    title: "Learning beyond textbooks",
+    text: "Classroom projects, sports, arts and group activities help students develop creativity, teamwork and practical skills.",
   },
   {
     number: "03",
-    title: "An environment of calm",
-    text: "A supportive environment helps students feel comfortable, focused and ready to learn.",
+    title: "Growing with confidence",
+    text: "A welcoming learning environment helps students develop confidence, responsibility and respect for others.",
   },
 ];
 
@@ -30,28 +31,35 @@ const LearningApproach = () => {
           Our Approach
         </p>
 
-        <h2 className="mt-3 max-w-3xl text-3xl font-black sm:text-5xl">
-          Three simple ideas behind everyday learning.
+        <h2 className="mt-3 max-w-3xl text-3xl font-black tracking-tight sm:text-5xl">
+          Helping every student learn, grow and succeed.
         </h2>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        <p className="mt-5 max-w-2xl leading-7 text-gray-600 sm:text-lg">
+          Education is about more than completing a syllabus. It is about
+          building knowledge, developing skills and preparing students
+          for the future.
+        </p>
+
+        <div className="mt-12 grid gap-8 border-t-2 border-black pt-8 md:grid-cols-3 md:gap-8">
           {approaches.map((item) => (
-            <div
-              key={item.number}
-              className="rounded-3xl border-2 border-black bg-white p-7 shadow-[5px_5px_0px_#000]"
-            >
-              <div className="text-4xl font-black text-red-400">
-                {item.number}
+            <article key={item.number} className="group">
+              <div className="flex items-center gap-4">
+                <span className="text-4xl font-black tracking-tight text-red-400 transition-transform duration-300 group-hover:translate-x-1">
+                  {item.number}
+                </span>
+
+                <div className="h-px flex-1 bg-gray-300" />
               </div>
 
-              <h3 className="mt-8 text-xl font-bold">
+              <h3 className="mt-6 text-xl font-bold tracking-tight">
                 {item.title}
               </h3>
 
               <p className="mt-3 leading-7 text-gray-600">
                 {item.text}
               </p>
-            </div>
+            </article>
           ))}
         </div>
       </div>

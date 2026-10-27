@@ -28,12 +28,12 @@ const school: SchoolConfig = {
   description:
     "A nurturing learning environment where students learn, explore, create and grow with confidence.",
 
-  phone: "+919876543210",
-  displayPhone: "+91 98765 43210",
+  phone: "+917337053641",
+  displayPhone: "+91 73370 53641",
 
-  email: "hello@example.com",
+  email: "rasheed.sk7337@gmail.com",
 
-  whatsapp: "919876543210",
+  whatsapp: "7337053641",
 
   hours: "Monday – Saturday · 9:00 AM – 4:00 PM",
 };

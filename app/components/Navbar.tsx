@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import { useState } from "react";
 import {
   Phone,
@@ -27,9 +28,7 @@ const navItems: NavItem[] = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
+  const closeMenu = () => setIsOpen(false);
 
   const whatsappUrl =
     `https://wa.me/${school.whatsapp}` +
@@ -39,26 +38,26 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-black/10 bg-white/95 backdrop-blur">
-      <nav className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex min-h-18 items-center justify-between gap-4">
-          {/* Logo */}
+      <nav className="mx-auto w-full max-w-7xl px-3 sm:px-6 lg:px-8">
+        <div className="flex min-h-18 items-center justify-between gap-2 sm:gap-4">
+          {/* School Logo and Name */}
           <a
             href="#home"
             onClick={closeMenu}
-            className="flex shrink-0 items-center gap-2"
+            className="flex min-w-0 flex-1 items-center gap-2 sm:flex-initial sm:gap-3"
           >
             <GraduationCap
               size={30}
               strokeWidth={1.8}
-              className="shrink-0 sm:h-8 sm:w-8"
+              className="h-7 w-7 shrink-0 sm:h-8 sm:w-8"
             />
 
-            <div className="leading-tight">
-              <div className="text-sm font-bold sm:text-base md:text-lg">
+            <div className="min-w-0 leading-tight">
+              <div className="wrap-break-word text-sm font-bold sm:text-base md:text-lg">
                 {school.name}
               </div>
 
-              <div className="text-[10px] text-gray-600 sm:text-xs">
+              <div className="mt-1 text-[10px] text-gray-600 sm:text-xs">
                 {school.classes} · India
               </div>
             </div>
@@ -99,19 +98,19 @@ const Navbar = () => {
 
             <a
               href="#visit"
-              className="flex items-center gap-1.5 whitespace-nowrap rounded-full border border-red-600 text-red-700 px-4 py-2 text-sm font-semibold transition hover:bg-red-50"
+              className="flex items-center gap-1.5 whitespace-nowrap rounded-full border border-red-600 px-4 py-2 text-sm font-semibold text-red-700 transition hover:bg-red-50"
             >
               <Calendar size={16} />
               <span>Book a Visit</span>
             </a>
           </div>
 
-          {/* Mobile / Tablet Actions */}
-          <div className="flex items-center gap-2 lg:hidden">
+          {/* Mobile and Tablet Actions */}
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2 lg:hidden">
             <a
               href={`tel:${school.phone}`}
               aria-label="Call school"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-black/10 transition hover:bg-gray-100 sm:h-10 sm:w-10"
             >
               <Phone size={17} />
             </a>
@@ -121,7 +120,7 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp school"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-green-100 text-green-700"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-green-100 text-green-700 transition hover:bg-green-200 sm:h-10 sm:w-10"
             >
               <MessageCircle size={18} />
             </a>
@@ -131,14 +130,14 @@ const Navbar = () => {
               onClick={() => setIsOpen((previous) => !previous)}
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-black/10 transition hover:bg-gray-100 sm:h-10 sm:w-10"
             >
               {isOpen ? <X size={21} /> : <Menu size={21} />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Navigation */}
         {isOpen && (
           <div className="border-t border-black/10 py-4 lg:hidden">
             <div className="flex flex-col gap-1">
@@ -156,7 +155,7 @@ const Navbar = () => {
               <a
                 href="#visit"
                 onClick={closeMenu}
-                className="mt-2 flex items-center justify-center gap-2 rounded-full bg-red-300 px-4 py-3 text-sm font-semibold"
+                className="mt-2 flex items-center justify-center gap-2 rounded-full bg-red-300 px-4 py-3 text-sm font-semibold transition hover:bg-red-400"
               >
                 <Calendar size={17} />
                 Book a Visit

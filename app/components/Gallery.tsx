@@ -1,3 +1,4 @@
+
 interface GalleryImage {
   src: string;
   alt: string;
@@ -5,28 +6,25 @@ interface GalleryImage {
 
 const images: GalleryImage[] = [
   {
-    src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80",
-    alt: "Students in classroom",
+    
+    src: "https://images.unsplash.com/photo-1594608661623-aa0bd3a69d98?q=80&w=1248&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+    alt: "Students learning together in a classroom",
   },
   {
-    src: "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=900&q=80",
-    alt: "Students learning",
+    src: "https://images.unsplash.com/photo-1709290749293-c6152a187b14?q=80&w=1738&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+    alt: "Teacher supporting students in class",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1692269725827-699e04a11cdf?q=80&w=1861&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+    alt: "Students engaged in classroom learning",
   },
   {
     src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80",
-    alt: "Students studying",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1569074187119-c87815b476da?auto=format&fit=crop&w=900&q=80",
-    alt: "School activity",
+    alt: "School learning environment",
   },
   {
     src: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=900&q=80",
-    alt: "Students reading",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=900&q=80",
-    alt: "Classroom activity",
+    alt: "Students reading and studying",
   },
 ];
 
@@ -34,40 +32,54 @@ const Gallery = () => {
   return (
     <section
       id="gallery"
-      className="bg-[#f5f5f5] px-4 py-20 sm:px-6 lg:px-8"
+      className="bg-[#f5f5f5] px-4 py-16 sm:px-6 sm:py-20 lg:px-8"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="text-center">
-          <p className="text-sm font-bold uppercase tracking-widest text-red-500">
-            Gallery
+        {/* Heading */}
+        <div className="max-w-2xl">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-red-500">
+            School Life
           </p>
 
-          <h2 className="mt-3 text-3xl font-black sm:text-5xl">
-            A look inside school life.
+          <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-gray-950 sm:text-5xl">
+            Everyday moments. Lasting memories.
           </h2>
+
+          <p className="mt-4 max-w-xl leading-7 text-gray-600">
+            A glimpse into the learning, friendships, and experiences
+            that make school life meaningful.
+          </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
+        {/* Image gallery */}
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3">
           {images.map((image, index) => (
             <div
               key={image.src}
-              className={`overflow-hidden rounded-2xl border-2 border-black ${
-                index === 0 ? "md:row-span-2" : ""
+              className={`group relative overflow-hidden rounded-2xl bg-gray-200 ${
+                index === 0
+                  ? "col-span-2 aspect-2/1 md:col-span-1 md:row-span-2 md:aspect-auto"
+                  : "aspect-4/3"
               }`}
             >
               <img
                 src={image.src}
                 alt={image.alt}
                 loading="lazy"
-                className="h-full min-h-45 w-full object-cover transition duration-500 hover:scale-105"
+                decoding="async"
+                className={`h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 ${
+                  index === 0 ? "md:absolute md:inset-0" : ""
+                }`}
+              />
+
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
               />
             </div>
           ))}
         </div>
 
-        <p className="mt-5 text-center text-xs text-gray-500">
-          Sample imagery used for demonstration purposes.
-        </p>
       </div>
     </section>
   );

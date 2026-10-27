@@ -1,3 +1,4 @@
+
 import { GraduationCap } from "lucide-react";
 import school from "../data/school";
 
@@ -8,19 +9,29 @@ const Footer = () => {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2">
-              <GraduationCap size={30} />
+            <a
+              href="#home"
+              className="inline-flex items-center gap-3"
+              aria-label={`${school.name} home`}
+            >
+              <GraduationCap
+                size={32}
+                strokeWidth={1.8}
+                className="shrink-0"
+              />
 
-              <div>
-                <p className="font-bold">{school.name}</p>
+              <div className="min-w-0">
+                <p className="wrap-break-word font-bold">
+                  {school.name}
+                </p>
 
-                <p className="text-xs text-gray-400">
+                <p className="mt-1 text-xs text-gray-400">
                   {school.classes}
                 </p>
               </div>
-            </div>
+            </a>
 
-            <p className="mt-5 max-w-md text-sm leading-6 text-gray-400">
+            <p className="mt-5 max-w-md text-sm leading-7 text-gray-400">
               {school.description}
             </p>
           </div>
@@ -29,77 +40,101 @@ const Footer = () => {
           <div>
             <p className="font-bold">Explore</p>
 
-            <div className="mt-4 space-y-3 text-sm text-gray-400">
+            <nav
+              aria-label="Footer navigation"
+              className="mt-4 space-y-3 text-sm text-gray-400"
+            >
               <a
                 href="#about"
-                className="block hover:text-white"
+                className="block transition-colors hover:text-white"
               >
-                About
+                About Us
               </a>
 
               <a
                 href="#academics"
-                className="block hover:text-white"
+                className="block transition-colors hover:text-white"
               >
                 Academics
               </a>
 
               <a
                 href="#student-life"
-                className="block hover:text-white"
+                className="block transition-colors hover:text-white"
               >
                 Student Life
               </a>
 
               <a
-                href="#admissions"
-                className="block hover:text-white"
+                href="#facilities"
+                className="block transition-colors hover:text-white"
               >
-                Admissions
+                Facilities
               </a>
 
               <a
                 href="#gallery"
-                className="block hover:text-white"
+                className="block transition-colors hover:text-white"
               >
                 Gallery
               </a>
-            </div>
+
+              <a
+                href="#admissions"
+                className="block transition-colors hover:text-white"
+              >
+                Admissions
+              </a>
+            </nav>
           </div>
 
           {/* Contact */}
           <div>
-            <p className="font-bold">Contact</p>
+            <p className="font-bold">Get in Touch</p>
 
-            <div className="mt-4 space-y-3 text-sm text-gray-400">
-              <p>{school.address}</p>
+            <div className="mt-4 space-y-4 text-sm leading-6 text-gray-400">
+              <p className="wrap-break-word">
+                {school.address}
+              </p>
 
               <a
                 href={`tel:${school.phone}`}
-                className="block hover:text-white"
+                className="block wrap-break-word transition-colors hover:text-white"
               >
                 {school.displayPhone}
               </a>
 
               <a
                 href={`mailto:${school.email}`}
-                className="block hover:text-white"
+                className="block wrap-break-word transition-colors hover:text-white"
               >
                 {school.email}
+              </a>
+
+              <a
+                href="#contact"
+                className="inline-block font-semibold text-yellow-300 transition-colors hover:text-yellow-200"
+              >
+                Contact the School →
               </a>
             </div>
           </div>
         </div>
 
-        <div className="mt-10 border-t border-white/10 pt-6 text-xs text-gray-500">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        {/* Copyright */}
+        <div className="mt-10 border-t border-white/10 pt-6">
+          <div className="flex flex-col gap-3 text-xs text-gray-500 sm:flex-row sm:items-center sm:justify-between">
             <p>
-              © {new Date().getFullYear()} {school.name}
+              © {new Date().getFullYear()} {school.name}.
+              All rights reserved.
             </p>
 
-            <p>
-              Demo website — sample content and imagery.
-            </p>
+            <a
+              href="#home"
+              className="transition-colors hover:text-white"
+            >
+              Back to top ↑
+            </a>
           </div>
         </div>
       </div>

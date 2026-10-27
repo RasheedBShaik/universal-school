@@ -1,3 +1,5 @@
+"use client"
+import { useState } from "react";
 import {
   Mail,
   MapPin,
@@ -6,6 +8,14 @@ import {
 import school from "../data/school";
 
 const Contact = () => {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e:any) => {
+    e.preventDefault();
+    setSubmitted(true);
+    e.target.reset();
+  };
+
   return (
     <section
       id="contact"
@@ -45,7 +55,6 @@ const Contact = () => {
 
                 <div>
                   <p className="font-bold">Phone</p>
-
                   <a
                     href={`tel:${school.phone}`}
                     className="text-gray-600 hover:text-black"
@@ -60,7 +69,6 @@ const Contact = () => {
 
                 <div>
                   <p className="font-bold">Email</p>
-
                   <a
                     href={`mailto:${school.email}`}
                     className="text-gray-600 hover:text-black"
@@ -89,22 +97,31 @@ const Contact = () => {
               Leave your details and the school team can get in touch.
             </p>
 
-            <form className="mt-6 space-y-4">
+            <form
+              className="mt-6 space-y-4"
+              onSubmit={handleSubmit}
+            >
               <input
                 type="text"
+                name="parentName"
                 placeholder="Parent / Guardian Name"
+                required
                 className="w-full rounded-xl border-2 border-black px-4 py-3 outline-none focus:bg-yellow-50"
               />
 
               <input
                 type="tel"
+                name="phone"
                 placeholder="Phone Number"
+                required
                 className="w-full rounded-xl border-2 border-black px-4 py-3 outline-none focus:bg-yellow-50"
               />
 
               <select
-                className="w-full rounded-xl border-2 border-black px-4 py-3 outline-none focus:bg-yellow-50"
+                name="class"
+                required
                 defaultValue=""
+                className="w-full rounded-xl border-2 border-black px-4 py-3 outline-none focus:bg-yellow-50"
               >
                 <option value="" disabled>
                   Select Class
@@ -116,22 +133,29 @@ const Contact = () => {
               </select>
 
               <textarea
+                name="message"
                 rows={4}
                 placeholder="Your message"
+                required
                 className="w-full resize-none rounded-xl border-2 border-black px-4 py-3 outline-none focus:bg-yellow-50"
               />
 
               <button
-                type="button"
+                type="submit"
                 className="w-full rounded-full bg-black px-6 py-3 font-bold text-white transition hover:bg-gray-800"
               >
                 Send Enquiry
               </button>
             </form>
 
-            <p className="mt-4 text-center text-xs text-gray-500">
-              Demo form — no information is submitted.
-            </p>
+            {submitted && (
+              <div
+                role="status"
+                className="mt-4 rounded-xl border-2 border-green-600 bg-green-50 p-4 text-center text-sm font-bold text-green-800"
+              >
+                Thank you! Your enquiry has been submitted successfully.
+              </div>
+            )}
           </div>
         </div>
       </div>
